@@ -1,0 +1,14 @@
+$source = "$env:USERPROFILE\Downloads\NIKITA_CRIME_REVISION_GAMES_FIXED(2).html"
+
+git clone https://github.com/altatiana7/Tatyana-English-Hub.git
+cd Tatyana-English-Hub
+
+Copy-Item -LiteralPath $source -Destination ".\index.html" -Force
+
+# Проверка: хэши должны быть ОДИНАКОВЫМИ
+Get-FileHash -LiteralPath $source -Algorithm SHA256
+Get-FileHash -LiteralPath ".\index.html" -Algorithm SHA256
+
+git add index.html
+git commit -m "Upload exact interactive HTML"
+git push origin main
