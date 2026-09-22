@@ -6,8 +6,8 @@
 <title>Nikita — English Hub</title>
 <style>
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#0e1b2b;font-family:Inter,Arial,sans-serif}body{display:grid;place-items:center;overflow:auto}
-.stage{position:relative;width:100vw;height:100vh;min-width:0;min-height:100vh;background:#142436;box-shadow:none;overflow:hidden}
-.stage>img{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;display:block;user-select:none;-webkit-user-drag:none}
+.stage{position:relative;width:min(100vw,177.7778vh);height:min(100vh,56.25vw);aspect-ratio:16/9;min-width:0;min-height:0;background:#142436;box-shadow:0 0 0 100vmax #0e1b2b;overflow:hidden}
+.stage>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;user-select:none;-webkit-user-drag:none}
 .hot{position:absolute;border:0;background:transparent;cursor:pointer;border-radius:14px;outline:none;transition:.18s}
 .hot:hover,.hot:focus-visible{background:#88c9ff20;box-shadow:inset 0 0 0 2px #9fd6ffb0,0 0 24px #7bc5ff55}
 /* sidebar */
@@ -24,8 +24,8 @@
 .election-shell{position:fixed;inset:0;z-index:40;display:none;background:#f4f4f1;color:#172235;overflow:hidden}
 .election-shell.open{display:block}.election-top{height:72px;background:#102944;color:#fff;display:flex;align-items:center;gap:14px;padding:0 24px;box-shadow:0 4px 18px #0002}
 .election-top strong{font-family:Georgia,serif;font-size:25px}.election-top span{font-size:12px;opacity:.78}.e-back{margin-left:auto;border:1px solid #ffffff55;background:#ffffff12;color:#fff;border-radius:999px;padding:10px 16px;cursor:pointer;font-weight:800}
-.election-layout{height:calc(100vh - 72px);display:grid;grid-template-columns:220px 1fr}.election-nav{background:#e8eaec;padding:18px 12px;overflow:auto;border-right:1px solid #d4d7da}
-.election-nav button{width:100%;text-align:left;border:0;background:transparent;padding:12px 13px;border-radius:12px;margin-bottom:5px;color:#213249;font-weight:800;cursor:pointer}.election-nav button.active,.election-nav button:hover{background:#fff;box-shadow:0 5px 16px #0000000d}
+.election-layout{height:calc(100vh - 72px);display:grid;grid-template-columns:205px 1fr}.election-nav{background:#e8eaec;padding:18px 12px;overflow:auto;border-right:1px solid #d4d7da}
+.election-nav button{width:100%;text-align:left;border:0;background:transparent;padding:10px 11px;border-radius:10px;margin-bottom:4px;color:#213249;font-weight:900;cursor:pointer;font-size:13px;line-height:1.15}.election-nav button.active,.election-nav button:hover{background:#fff;box-shadow:0 5px 16px #0000000d}
 .election-main{overflow:auto;padding:26px}.e-slide{display:none;max-width:1100px;margin:0 auto}.e-slide.active{display:block}.e-kicker{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:900;color:#9b1c27}.e-slide h2{font-family:Georgia,serif;font-size:38px;margin:6px 0 10px;color:#102944}.e-slide h3{font-family:Georgia,serif;margin:20px 0 10px}.e-lead{font-size:17px;line-height:1.55;color:#465263;max-width:820px}
 .e-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}.e-card{background:#fff;border:1px solid #dfe2e5;border-radius:18px;overflow:hidden;box-shadow:0 8px 22px #0000000d}.e-card img{width:100%;height:150px;object-fit:cover;display:block}.e-card .pad{padding:14px}.e-card b{display:block;font-size:18px;color:#102944}.e-card small{display:block;color:#657181;margin-top:4px}
 .flash{cursor:pointer}.flash .answer{display:none;margin-top:8px;color:#9b1c27;font-weight:800}.flash.flip .answer{display:block}
@@ -61,7 +61,7 @@
 .policy textarea{width:100%;min-height:150px;border:1px solid #cad3db;border-radius:14px;padding:14px;font:inherit;resize:vertical}
 @media(max-width:820px){.ref-layout{grid-template-columns:1fr}.ref-nav{display:flex;gap:6px;overflow-x:auto;padding:9px}.ref-nav button{min-width:max-content;margin:0}.ref-main{padding:18px}.ref-grid,.alien{grid-template-columns:1fr}.ref-photos{grid-template-columns:repeat(2,1fr)}}
 
-@media(max-width:760px){body{place-items:stretch}.stage{width:100vw;height:100vh;min-width:0}.panel{padding:20px}.grid{grid-template-columns:1fr}}
+@media(max-width:760px){body{place-items:center}.stage{width:100vw;height:auto;aspect-ratio:16/9;min-width:0;min-height:0}.panel{padding:20px}.grid{grid-template-columns:1fr}}
 
 .vault-cover{position:absolute;left:58.6%;top:63.5%;width:19.5%;height:20.5%;border-radius:14px;background:linear-gradient(135deg,#112b46f5,#1d3f61f5);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:18px 20px;pointer-events:none;box-shadow:inset 0 0 0 1px #ffffff35}
 .vault-cover b{font-family:Georgia,serif;font-size:20px;margin-bottom:8px}.vault-cover span{font-size:12px;line-height:1.45;opacity:.9}
@@ -184,19 +184,34 @@
   </header>
   <div class="election-layout">
     <nav class="election-nav">
-      <button class="active" data-eslide="0">1. Key Words</button>
-      <button data-eslide="1">2. Tricky Quiz</button>
-      <button data-eslide="2">3. Lead-in</button>
-      <button data-eslide="3">4. Vocabulary</button>
-      <button data-eslide="4">5. Practice</button>
-      <button data-eslide="5">6. Grammar</button>
-      <button data-eslide="6">7. Word Formation</button>
-      <button data-eslide="7">8. Reading</button>
-      <button data-eslide="8">9. Speaking</button>
-      <button data-eslide="9">10. Final Quiz</button>
+      <button class="active" data-eslide="0">1. START HERE</button>
+      <button data-eslide="1">2. KEY WORDS</button>
+      <button data-eslide="2">3. CAN THEY VOTE?</button>
+      <button data-eslide="3">4. ELECTION DAY</button>
+      <button data-eslide="4">5. ELECTION VOCAB</button>
+      <button data-eslide="5">6. PRACTICE</button>
+      <button data-eslide="6">7. GRAMMAR</button>
+      <button data-eslide="7">8. WORD FORMATION</button>
+      <button data-eslide="8">9. READING</button>
+      <button data-eslide="9">10. SPEAKING</button>
+      <button data-eslide="10">11. FINAL QUIZ</button>
     </nav>
     <main class="election-main">
       <section class="e-slide active">
+        <div class="e-kicker">Teacher route</div><h2>Start here</h2>
+        <p class="e-lead">Use this order on the interactive board. One button = one stage of the lesson.</p>
+        <div class="e-box">
+          <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px">
+            <div class="item"><b>1 · KEY WORDS</b>7–8 min<br><small>Build the language support first.</small></div>
+            <div class="item"><b>2 · CAN THEY VOTE?</b>10–12 min<br><small>Tricky legal quiz. Let Nikita guess before revealing the rule.</small></div>
+            <div class="item"><b>3 · ELECTION VOCAB</b>10 min<br><small>Polling station, ballot, turnout, candidate, secret ballot.</small></div>
+            <div class="item"><b>4 · SPEAKING</b>15–20 min<br><small>Use the legal distinctions and target vocabulary in discussion.</small></div>
+          </div>
+        </div>
+        <div class="e-box"><b>Today’s aim</b><p style="margin:8px 0 0">Understand key election vocabulary and explain who can vote or stand for election in different legal situations.</p></div>
+        <div class="e-box"><b>Teacher note</b><p style="margin:8px 0 0">Do not start with the old photo lead-in. Start with <b>KEY WORDS</b>, then go straight to <b>CAN THEY VOTE?</b>. Use <b>ELECTION DAY</b> only as optional visual revision.</p></div>
+      </section>
+      <section class="e-slide">
         <div class="e-kicker">Vocabulary first</div><h2>Key words before the quiz</h2>
         <p class="e-lead">Listen to the English phrase on the front. Flip the card for Russian + a short meaning. Audio is only on the front side.</p>
         <div class="e-box">
@@ -317,7 +332,7 @@ const modal=document.getElementById('modal'),content=document.getElementById('co
 document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>{content.innerHTML=sections[b.dataset.open]||sections.home;modal.classList.add('open')}));
 function shut(){modal.classList.remove('open')}document.getElementById('close').onclick=shut;modal.addEventListener('click',e=>{if(e.target===modal)shut()});document.addEventListener('keydown',e=>{if(e.key==='Escape')shut()});
 
-function openElectionLesson(){shut();document.getElementById('electionLesson').classList.add('open');document.body.style.overflow='hidden'}
+function openElectionLesson(){shut();document.getElementById('electionLesson').classList.add('open');document.body.style.overflow='hidden';const bs=[...document.querySelectorAll('[data-eslide]')],ss=[...document.querySelectorAll('.e-slide')];bs.forEach((x,i)=>x.classList.toggle('active',i===0));ss.forEach((x,i)=>x.classList.toggle('active',i===0));document.querySelector('.election-main').scrollTop=0}
 function closeElectionLesson(){document.getElementById('electionLesson').classList.remove('open');document.body.style.overflow='auto'}
 document.querySelectorAll('[data-eslide]').forEach((b,i)=>b.addEventListener('click',()=>{document.querySelectorAll('[data-eslide]').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.e-slide').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.e-slide')[i].classList.add('active');document.querySelector('.election-main').scrollTop=0}));
 function checkSelects(btn){const box=btn.closest('.e-box'),qs=[...box.querySelectorAll('select[data-a]')];let n=0;qs.forEach(s=>{const ok=s.value===s.dataset.a;s.style.borderColor=ok?'#5c9a68':'#b85b63';if(ok)n++});btn.nextElementSibling.textContent=n+'/'+qs.length+' correct'}
