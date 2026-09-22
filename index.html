@@ -62,6 +62,12 @@
 @media(max-width:820px){.ref-layout{grid-template-columns:1fr}.ref-nav{display:flex;gap:6px;overflow-x:auto;padding:9px}.ref-nav button{min-width:max-content;margin:0}.ref-main{padding:18px}.ref-grid,.alien{grid-template-columns:1fr}.ref-photos{grid-template-columns:repeat(2,1fr)}}
 
 @media(max-width:760px){body{place-items:stretch}.stage{width:100vw;height:100vh;min-width:0}.panel{padding:20px}.grid{grid-template-columns:1fr}}
+
+.vault-cover{position:absolute;left:58.6%;top:63.5%;width:19.5%;height:20.5%;border-radius:14px;background:linear-gradient(135deg,#112b46f5,#1d3f61f5);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:18px 20px;pointer-events:none;box-shadow:inset 0 0 0 1px #ffffff35}
+.vault-cover b{font-family:Georgia,serif;font-size:20px;margin-bottom:8px}.vault-cover span{font-size:12px;line-height:1.45;opacity:.9}
+@media(max-width:760px){.vault-cover{padding:12px}.vault-cover b{font-size:16px}.vault-cover span{font-size:10px}}
+
+.vault-side-label{position:absolute;left:.4%;top:54.2%;width:8.9%;height:6.2%;display:flex;align-items:center;padding-left:18px;background:#163451f3;color:#fff;font-size:13px;font-weight:800;pointer-events:none;border-radius:0 8px 8px 0}
 </style>
 </head>
 <body>
@@ -72,13 +78,13 @@
 <button class="hot h-outcomes" data-open="outcomes" aria-label="Outcomes"></button>
 <button class="hot h-legal" data-open="legal" aria-label="Legal English"></button>
 <button class="hot h-real" data-open="real" aria-label="Real-life tasks"></button>
-<button class="hot h-progress" data-open="progress" aria-label="Progress"></button>
+<div class="vault-side-label">Discussion</div><button class="hot h-progress" data-open="vault" aria-label="Discussion Vault"></button>
 <button class="hot h-resources" data-open="resources" aria-label="Resources"></button>
 <button class="hot c-speaking" data-open="speaking" aria-label="Open Speaking Practice"></button>
 <button class="hot c-outcomes" data-open="outcomes" aria-label="Open Outcomes"></button>
 <button class="hot c-legal" data-open="legal" aria-label="Open Legal English"></button>
 <button class="hot c-real" data-open="real" aria-label="Open Real-life Tasks"></button>
-<button class="hot c-progress" data-open="progress" aria-label="Open Progress"></button>
+<div class="vault-cover"><b>Discussion Vault</b><span>Religion · Politics · Law · Society · Education</span></div><button class="hot c-progress" data-open="vault" aria-label="Open Discussion Vault"></button>
 <button class="hot c-resources" data-open="resources" aria-label="Open Resources"></button>
 </main>
 
@@ -273,7 +279,7 @@ speaking:`<span class="tag">Speaking</span><h2 id="modalTitle">Speaking Practice
 outcomes:`<span class="tag">Outcomes</span><span class="tag">Pre-Intermediate</span><h2 id="modalTitle">Coursebook Work</h2><p>The core course follows Outcomes Pre-Intermediate, with vocabulary recycled into conversation instead of isolated drills.</p><div class="grid"><div class="item"><b>Vocabulary</b>Useful chunks and collocations from the current unit.</div><div class="item"><b>Grammar</b>Only the grammar needed to improve real communication.</div><div class="item"><b>Listening</b>Notice natural phrases, then reuse them in speaking.</div><div class="item"><b>Review</b>Fast retrieval practice from previous lessons.</div></div>`,
 legal:`<span class="tag">Legal English</span><h2 id="modalTitle">English for Law</h2><p>Accessible legal English connected to Nikita’s university studies without turning the lesson into a specialist law lecture.</p><div class="grid"><div class="item"><b>Core vocabulary</b>law, court, evidence, rights, offence, contract, claim, judge, lawyer.</div><div class="item"><b>Explain simply</b>Describe legal concepts in clear English.</div><div class="item"><b>Case talk</b>Discuss short, level-appropriate scenarios.</div><div class="item"><b>Professional future</b>Build language for study and future work.</div></div>`,
 real:`<span class="tag">Real-life English</span><h2 id="modalTitle">Real-life Tasks</h2><p>Practical speaking scenarios that require a result, not just correct grammar.</p><button class="lesson-launch" onclick="openElectionLesson()"><b>Elections in Russia</b><small>Vocabulary • grammar • reading • speaking • final quiz</small></button><button class="ref-launch" onclick="openRefLesson()"><b>Religious Education & Freedom</b><small>Education • beliefs • rights • case studies • debate</small></button><div class="grid"><div class="item"><b>Explain a problem</b>Give details, clarify and answer follow-up questions.</div><div class="item"><b>Make a decision</b>Compare options and justify a choice.</div><div class="item"><b>Negotiate</b>Make suggestions and reach an agreement.</div><div class="item"><b>Handle disagreement</b>Stay polite, clear and persuasive.</div></div>`,
-progress:`<span class="tag">Progress</span><h2 id="modalTitle">Progress Tracker</h2><p>Track practical development rather than isolated test scores.</p><div class="grid"><div class="item"><b>Speaking</b>Fluency, length of answer, confidence.</div><div class="item"><b>Vocabulary</b>Active use of new chunks in conversation.</div><div class="item"><b>Grammar</b>Accuracy with the structures currently studied.</div><div class="item"><b>Legal English</b>Ability to explain law-related ideas clearly.</div></div>`,
+vault:`<span class="tag">Speaking Support</span><span class="tag">Teacher Tool</span><h2 id="modalTitle">Discussion Vault</h2><p>Fast access to richer conversation topics when Nikita naturally takes the lesson beyond the coursebook.</p><div class="grid"><div class="item"><b>Religion & Belief</b>God, faith, Hinduism, Islam, secularism, rituals, freedom of religion.</div><div class="item"><b>Politics & Society</b>Government, elections, public opinion, ideology, social change.</div><div class="item"><b>Law & Rights</b>Freedom of speech, discrimination, religious rights, legal limits.</div><div class="item"><b>Education & Control</b>Critical thinking, indoctrination, cults, high-control groups, school policy.</div></div>`,
 resources:`<span class="tag">Resources</span><h2 id="modalTitle">Useful Resources</h2><p>Keep lesson materials, useful links, vocabulary and reference tools in one place.</p><div class="grid"><div class="item"><b>Lesson materials</b>Current Outcomes unit and speaking extensions.</div><div class="item"><b>Vocabulary bank</b>Personalised words and collocations worth recycling.</div><div class="item"><b>Listening</b>Short authentic or level-adjusted listening tasks.</div><div class="item"><b>Legal reading</b>Short accessible texts linked to law and society.</div></div>`
 };
 const modal=document.getElementById('modal'),content=document.getElementById('content');
