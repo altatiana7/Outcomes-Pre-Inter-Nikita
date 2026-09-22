@@ -17,6 +17,27 @@
 .modal{position:fixed;inset:0;display:none;place-items:center;background:#06111dcc;backdrop-filter:blur(8px);z-index:10;padding:24px}.modal.open{display:grid}
 .panel{width:min(760px,94vw);max-height:88vh;overflow:auto;background:#f5f2ec;color:#0f1c2d;border-radius:24px;padding:28px;box-shadow:0 30px 90px #0009;border:1px solid #ffffff77}
 .panel h2{font-family:Georgia,serif;font-size:34px;margin:0 0 8px}.panel p{line-height:1.55;color:#354355}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:20px}.item{background:white;border-radius:16px;padding:16px;border:1px solid #d9dee5}.item b{display:block;margin-bottom:5px;color:#0d2038}.close{float:right;border:0;background:#10253e;color:white;border-radius:999px;width:40px;height:40px;font-size:22px;cursor:pointer}.tag{display:inline-block;padding:7px 11px;border-radius:999px;background:#dbeaf7;color:#17334f;font-weight:700;font-size:13px;margin:0 6px 6px 0}
+
+/* Elections in Russia — embedded Real-life Task */
+.lesson-launch{display:block;width:100%;margin-top:18px;border:0;border-radius:18px;padding:17px 18px;text-align:left;background:linear-gradient(135deg,#0c2e55,#9f1d28);color:#fff;cursor:pointer;box-shadow:0 12px 28px #07182b2b}
+.lesson-launch b{display:block;font-size:18px;margin-bottom:4px}.lesson-launch small{opacity:.9;font-size:13px}
+.election-shell{position:fixed;inset:0;z-index:40;display:none;background:#f4f4f1;color:#172235;overflow:hidden}
+.election-shell.open{display:block}.election-top{height:72px;background:#102944;color:#fff;display:flex;align-items:center;gap:14px;padding:0 24px;box-shadow:0 4px 18px #0002}
+.election-top strong{font-family:Georgia,serif;font-size:25px}.election-top span{font-size:12px;opacity:.78}.e-back{margin-left:auto;border:1px solid #ffffff55;background:#ffffff12;color:#fff;border-radius:999px;padding:10px 16px;cursor:pointer;font-weight:800}
+.election-layout{height:calc(100vh - 72px);display:grid;grid-template-columns:220px 1fr}.election-nav{background:#e8eaec;padding:18px 12px;overflow:auto;border-right:1px solid #d4d7da}
+.election-nav button{width:100%;text-align:left;border:0;background:transparent;padding:12px 13px;border-radius:12px;margin-bottom:5px;color:#213249;font-weight:800;cursor:pointer}.election-nav button.active,.election-nav button:hover{background:#fff;box-shadow:0 5px 16px #0000000d}
+.election-main{overflow:auto;padding:26px}.e-slide{display:none;max-width:1100px;margin:0 auto}.e-slide.active{display:block}.e-kicker{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:900;color:#9b1c27}.e-slide h2{font-family:Georgia,serif;font-size:38px;margin:6px 0 10px;color:#102944}.e-slide h3{font-family:Georgia,serif;margin:20px 0 10px}.e-lead{font-size:17px;line-height:1.55;color:#465263;max-width:820px}
+.e-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}.e-card{background:#fff;border:1px solid #dfe2e5;border-radius:18px;overflow:hidden;box-shadow:0 8px 22px #0000000d}.e-card img{width:100%;height:150px;object-fit:cover;display:block}.e-card .pad{padding:14px}.e-card b{display:block;font-size:18px;color:#102944}.e-card small{display:block;color:#657181;margin-top:4px}
+.flash{cursor:pointer}.flash .answer{display:none;margin-top:8px;color:#9b1c27;font-weight:800}.flash.flip .answer{display:block}
+.e-box{background:#fff;border:1px solid #dfe2e5;border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 8px 22px #0000000b}.e-q{padding:12px 0;border-bottom:1px solid #eceeef}.e-q:last-child{border-bottom:0}.e-q label{display:block;font-weight:800;margin-bottom:8px}.e-q select,.e-q input{width:100%;max-width:460px;padding:10px 12px;border:1px solid #cbd1d7;border-radius:10px;background:#fff;font:inherit}
+.e-check{border:0;background:#102944;color:white;border-radius:12px;padding:11px 16px;font-weight:900;cursor:pointer;margin-top:12px}.e-result{font-weight:900;margin-left:10px}
+.cloze{font-size:17px;line-height:2}.cloze input{width:120px;border:0;border-bottom:2px solid #9b1c27;background:#f5f5f2;padding:3px 5px;font:inherit}
+.wordbank{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.wordbank span{background:#e9eef4;border-radius:999px;padding:7px 10px;font-weight:800;font-size:13px}
+.reading{columns:2;column-gap:36px;line-height:1.65}.speak-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.prompt{background:#fff;border-left:5px solid #9b1c27;padding:16px;border-radius:14px;min-height:140px}.prompt b{display:block;margin-bottom:8px}
+.quiz-opt{display:block;width:100%;text-align:left;border:1px solid #d9dee4;background:#fff;border-radius:12px;padding:11px 12px;margin:7px 0;cursor:pointer}.quiz-opt.good{background:#e5f3e9;border-color:#76ad82}.quiz-opt.bad{background:#f8e7e8;border-color:#c77b82}
+.source-note{font-size:12px;color:#69727d;margin-top:20px}.photo-strip{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;margin:18px 0}.photo-strip img{width:100%;height:230px;object-fit:cover;border-radius:16px}
+@media(max-width:820px){.election-layout{grid-template-columns:1fr}.election-nav{display:flex;gap:6px;overflow-x:auto;padding:9px;border-right:0;border-bottom:1px solid #d4d7da}.election-nav button{min-width:max-content;margin:0}.election-main{padding:18px}.e-grid,.speak-grid{grid-template-columns:1fr 1fr}.reading{columns:1}.photo-strip{grid-template-columns:1fr}.photo-strip img{height:180px}}
+
 @media(max-width:760px){body{place-items:start center}.stage{min-width:900px}.panel{padding:20px}.grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -37,6 +58,101 @@
 <button class="hot c-progress" data-open="progress" aria-label="Open Progress"></button>
 <button class="hot c-resources" data-open="resources" aria-label="Open Resources"></button>
 </main>
+
+<div class="election-shell" id="electionLesson" aria-label="Elections in Russia lesson">
+  <header class="election-top">
+    <div><strong>Elections in Russia</strong><br><span>Real-life English • Pre-Intermediate / Intermediate</span></div>
+    <button class="e-back" onclick="closeElectionLesson()">← Back to Nikita's Hub</button>
+  </header>
+  <div class="election-layout">
+    <nav class="election-nav">
+      <button class="active" data-eslide="0">1. Lead-in</button>
+      <button data-eslide="1">2. Vocabulary</button>
+      <button data-eslide="2">3. Practice</button>
+      <button data-eslide="3">4. Grammar</button>
+      <button data-eslide="4">5. Word Formation</button>
+      <button data-eslide="5">6. Reading</button>
+      <button data-eslide="6">7. Speaking</button>
+      <button data-eslide="7">8. Final Quiz</button>
+    </nav>
+    <main class="election-main">
+      <section class="e-slide active">
+        <div class="e-kicker">Warm-up</div><h2>What happens on election day?</h2>
+        <p class="e-lead">Look at the photos. Describe what you can see, then put the stages of voting in a logical order. Focus on neutral, practical language rather than political opinions.</p>
+        <div class="photo-strip">
+          <img src="https://dpru.obs.ru-moscow-1.hc.sbercloud.ru/images/article/2024/03/18/fb458a95-55b6-46ab-bf96-b46f159293da_F.jpg" alt="Polling station">
+          <img src="https://tkgorod.ru/media/filer_public_thumbnails/filer_public/a5/4f/a54f3f7f-b0bb-4b86-b458-33671666eeb9/3th1v-h8uss.jpg__1500x1500_q100_ALIAS-1500x1500_subsampling-2.jpg" alt="Voter casting a ballot">
+          <img src="https://images.tagesschau.de/image/99e36431-83ac-425e-817c-09de45aedc8c/AAABmBIkLUQ/AAABmyZE3MM/1x1-1400/wahlurne-101.jpg" alt="Ballot box">
+        </div>
+        <div class="e-box"><b>Discuss</b><ol><li>What does a voter normally do before receiving a ballot paper?</li><li>Why is a voting booth important?</li><li>What makes voting secret?</li><li>Which election-related words do you already know in English?</li></ol></div>
+      </section>
+      <section class="e-slide">
+        <div class="e-kicker">Vocabulary</div><h2>Core election vocabulary</h2>
+        <p class="e-lead">Click a card to reveal a short definition.</p>
+        <div class="e-grid">
+          <article class="e-card flash" onclick="this.classList.toggle('flip')"><img src="https://dpru.obs.ru-moscow-1.hc.sbercloud.ru/images/article/2024/03/18/fb458a95-55b6-46ab-bf96-b46f159293da_F.jpg"><div class="pad"><b>polling station</b><small>место голосования</small><div class="answer">a place where people go to vote</div></div></article>
+          <article class="e-card flash" onclick="this.classList.toggle('flip')"><img src="https://images.tagesschau.de/image/99e36431-83ac-425e-817c-09de45aedc8c/AAABmBIkLUQ/AAABmyZE3MM/1x1-1400/wahlurne-101.jpg"><div class="pad"><b>ballot paper</b><small>избирательный бюллетень</small><div class="answer">the paper used to record a vote</div></div></article>
+          <article class="e-card flash" onclick="this.classList.toggle('flip')"><img src="https://tkgorod.ru/media/filer_public_thumbnails/filer_public/a5/4f/a54f3f7f-b0bb-4b86-b458-33671666eeb9/3th1v-h8uss.jpg__1500x1500_q100_ALIAS-1500x1500_subsampling-2.jpg"><div class="pad"><b>ballot box</b><small>урна для голосования</small><div class="answer">a sealed container for completed ballots</div></div></article>
+          <article class="e-card flash" onclick="this.classList.toggle('flip')"><img src="https://www.washingtonpost.com/wp-apps/imrs.php?impolicy=high_res&src=https%3A%2F%2Farc-anglerfish-washpost-prod-washpost.s3.amazonaws.com%2Fpublic%2FVFRJYZIYCEXX4IHY66PVNMLFLM.JPG&w=1440"><div class="pad"><b>voter</b><small>избиратель</small><div class="answer">a person who has the right to vote</div></div></article>
+          <article class="e-card flash" onclick="this.classList.toggle('flip')"><img src="https://dpru.obs.ru-moscow-1.hc.sbercloud.ru/images/article/2024/03/18/fb458a95-55b6-46ab-bf96-b46f159293da_F.jpg" style="object-position:left"><div class="pad"><b>candidate</b><small>кандидат</small><div class="answer">a person standing for election</div></div></article>
+          <article class="e-card flash" onclick="this.classList.toggle('flip')"><img src="https://tkgorod.ru/media/filer_public_thumbnails/filer_public/a5/4f/a54f3f7f-b0bb-4b86-b458-33671666eeb9/3th1v-h8uss.jpg__1500x1500_q100_ALIAS-1500x1500_subsampling-2.jpg" style="object-position:right"><div class="pad"><b>voting booth</b><small>кабина для голосования</small><div class="answer">a private place where a voter marks a ballot</div></div></article>
+        </div>
+        <div class="wordbank"><span>election</span><span>cast a vote</span><span>electoral rights</span><span>eligible</span><span>turnout</span><span>referendum</span><span>secret ballot</span><span>election results</span></div>
+      </section>
+      <section class="e-slide">
+        <div class="e-kicker">Vocabulary practice</div><h2>Use the words actively</h2>
+        <div class="e-box"><h3>1. Match the collocations</h3>
+          <div class="e-q"><label>___ an election</label><select data-a="hold"><option>choose</option><option>hold</option><option>make</option></select></div>
+          <div class="e-q"><label>___ a vote</label><select data-a="cast"><option>take</option><option>cast</option><option>put</option></select></div>
+          <div class="e-q"><label>voter ___</label><select data-a="turnout"><option>turnout</option><option>arrival</option><option>presence</option></select></div>
+          <button class="e-check" onclick="checkSelects(this)">Check</button><span class="e-result"></span>
+        </div>
+        <div class="e-box"><h3>2. Choose the correct word</h3>
+          <div class="e-q"><label>A person who is legally allowed to vote is ___.</label><select data-a="eligible"><option>elected</option><option>eligible</option><option>electoral</option></select></div>
+          <div class="e-q"><label>A private place for marking a ballot is a ___.</label><select data-a="voting booth"><option>ballot box</option><option>voting booth</option><option>polling list</option></select></div>
+          <div class="e-q"><label>The percentage of people who vote is called voter ___.</label><select data-a="turnout"><option>turnout</option><option>result</option><option>right</option></select></div>
+          <button class="e-check" onclick="checkSelects(this)">Check</button><span class="e-result"></span>
+        </div>
+        <div class="e-box"><h3>3. Speaking challenge</h3><p>Explain the voting process using at least six items from the word bank. Speak for 60 seconds without stopping.</p></div>
+      </section>
+      <section class="e-slide">
+        <div class="e-kicker">Grammar in context</div><h2>Election day: choose the correct form</h2>
+        <div class="e-box cloze">On election day, citizens who <input data-answer="are" placeholder="BE"> eligible to vote usually <input data-answer="go" placeholder="GO"> to a polling station or use another legally available method of voting. A voter <input data-answer="receives" placeholder="RECEIVE"> a ballot paper and then <input data-answer="marks" placeholder="MARK"> it privately. After the ballot <input data-answer="has been completed" placeholder="COMPLETE">, it is submitted according to the applicable procedure. In Russia, citizens who <input data-answer="have reached" placeholder="REACH"> the age of 18 by voting day generally have the right to vote. Participation <input data-answer="is" placeholder="BE"> free and voluntary. If a voter <input data-answer="needs" placeholder="NEED"> information about the procedure, election officials can explain the practical steps without telling the voter how to vote.</div>
+        <button class="e-check" onclick="checkInputs(this)">Check grammar</button><span class="e-result"></span>
+      </section>
+      <section class="e-slide">
+        <div class="e-kicker">Word formation</div><h2>Transform the word in brackets</h2>
+        <div class="e-box cloze">Elections are an important form of public <input data-answer="participation" placeholder="PARTICIPATE">. A person must meet the legal <input data-answer="requirements" placeholder="REQUIRE"> to be eligible to vote. The voting procedure should protect the <input data-answer="secrecy" placeholder="SECRET"> of each ballot. Election commissions are responsible for the practical <input data-answer="organisation" placeholder="ORGANISE"> of voting. Clear information helps voters make an <input data-answer="informed" placeholder="INFORM"> decision about participation and understand the <input data-answer="electoral" placeholder="ELECT"> process.</div>
+        <button class="e-check" onclick="checkInputs(this)">Check word formation</button><span class="e-result"></span>
+      </section>
+      <section class="e-slide">
+        <div class="e-kicker">Reading</div><h2>Voting rights and election day</h2>
+        <div class="e-box reading">In the Russian Federation, citizens who have reached the age of 18 by voting day generally have the right to vote. Federal law also states that participation in elections is free and voluntary and is based on universal, equal and direct suffrage by secret ballot. These principles describe the legal framework; the detailed procedure depends on the type of election and the applicable rules.<br><br>At a polling station, a voter is typically identified and receives the necessary voting materials. A ballot is completed privately. The idea of a secret ballot is that other people should not know how an individual voted. Election officials organise the process and answer procedural questions, but the voter makes the decision independently.<br><br>Election vocabulary is useful beyond politics. Expressions such as <i>be eligible to vote</i>, <i>cast a vote</i>, <i>voter turnout</i>, <i>polling station</i> and <i>election results</i> frequently appear in news reports, academic discussions and legal English.</div>
+        <div class="e-box"><div class="e-q"><label>1. At what age do Russian citizens generally gain the right to vote?</label><select data-a="18"><option>16</option><option>18</option><option>21</option></select></div><div class="e-q"><label>2. According to the text, participation is...</label><select data-a="free and voluntary"><option>compulsory</option><option>free and voluntary</option><option>limited to students</option></select></div><div class="e-q"><label>3. What does a secret ballot protect?</label><select data-a="privacy"><option>privacy</option><option>campaign funding</option><option>candidate age</option></select></div><button class="e-check" onclick="checkSelects(this)">Check</button><span class="e-result"></span></div>
+        <p class="source-note">Legal basis used for this neutral language-practice text: Federal Law No. 67-FZ on basic guarantees of electoral rights; Federal Law No. 20-FZ for State Duma elections.</p>
+      </section>
+      <section class="e-slide">
+        <div class="e-kicker">Speaking</div><h2>Real-life speaking tasks</h2>
+        <div class="speak-grid">
+          <div class="prompt"><b>Situation 1 — Explain the process</b>Your international classmate asks what happens at a polling station. Give a clear step-by-step explanation using at least five target phrases.</div>
+          <div class="prompt"><b>Situation 2 — Clarify vocabulary</b>Explain the difference between a voter, a candidate, a ballot paper, a ballot box and a voting booth.</div>
+          <div class="prompt"><b>Situation 3 — Compare systems</b>Without arguing for a political side, compare two practical ways elections can be organised. Focus on procedure, access, privacy and convenience.</div>
+          <div class="prompt"><b>Situation 4 — Legal English</b>A foreign student asks what “electoral rights”, “eligible to vote” and “secret ballot” mean. Explain each term in plain English.</div>
+        </div>
+      </section>
+      <section class="e-slide">
+        <div class="e-kicker">Revision</div><h2>Final quiz</h2>
+        <div class="e-box" id="eQuiz">
+          <div class="e-q"><label>1. Which phrase means “проголосовать”?</label><button class="quiz-opt" data-correct="1">cast a vote</button><button class="quiz-opt">make an election</button><button class="quiz-opt">do a ballot</button></div>
+          <div class="e-q"><label>2. Where does a voter mark a ballot privately?</label><button class="quiz-opt">ballot box</button><button class="quiz-opt" data-correct="1">voting booth</button><button class="quiz-opt">candidate desk</button></div>
+          <div class="e-q"><label>3. “Eligible” means...</label><button class="quiz-opt">already elected</button><button class="quiz-opt" data-correct="1">legally allowed or qualified</button><button class="quiz-opt">politically active</button></div>
+          <div class="e-q"><label>4. Which collocation is correct?</label><button class="quiz-opt" data-correct="1">voter turnout</button><button class="quiz-opt">voter output</button><button class="quiz-opt">vote attendance result</button></div>
+          <div class="e-q"><label>5. A secret ballot is designed to protect...</label><button class="quiz-opt">the identity of candidates</button><button class="quiz-opt" data-correct="1">the privacy of an individual's vote</button><button class="quiz-opt">the election date</button></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><section class="panel"><button class="close" id="close" aria-label="Close">×</button><div id="content"></div></section></div>
 <script>
 const sections={
@@ -44,12 +160,20 @@ home:`<span class="tag">Conversation English</span><span class="tag">Pre-Interme
 speaking:`<span class="tag">Speaking</span><h2 id="modalTitle">Speaking Practice</h2><p>Short conversation blocks designed to maximise Nikita’s speaking time.</p><div class="grid"><div class="item"><b>Everyday English</b>Opinions, experiences, plans, habits and current life.</div><div class="item"><b>Discussion</b>Agreeing, disagreeing, explaining reasons and giving examples.</div><div class="item"><b>Fluency sprint</b>60–90 second answers without stopping.</div><div class="item"><b>Feedback</b>Useful corrections and upgraded natural phrases after speaking.</div></div>`,
 outcomes:`<span class="tag">Outcomes</span><span class="tag">Pre-Intermediate</span><h2 id="modalTitle">Coursebook Work</h2><p>The core course follows Outcomes Pre-Intermediate, with vocabulary recycled into conversation instead of isolated drills.</p><div class="grid"><div class="item"><b>Vocabulary</b>Useful chunks and collocations from the current unit.</div><div class="item"><b>Grammar</b>Only the grammar needed to improve real communication.</div><div class="item"><b>Listening</b>Notice natural phrases, then reuse them in speaking.</div><div class="item"><b>Review</b>Fast retrieval practice from previous lessons.</div></div>`,
 legal:`<span class="tag">Legal English</span><h2 id="modalTitle">English for Law</h2><p>Accessible legal English connected to Nikita’s university studies without turning the lesson into a specialist law lecture.</p><div class="grid"><div class="item"><b>Core vocabulary</b>law, court, evidence, rights, offence, contract, claim, judge, lawyer.</div><div class="item"><b>Explain simply</b>Describe legal concepts in clear English.</div><div class="item"><b>Case talk</b>Discuss short, level-appropriate scenarios.</div><div class="item"><b>Professional future</b>Build language for study and future work.</div></div>`,
-real:`<span class="tag">Real-life English</span><h2 id="modalTitle">Real-life Tasks</h2><p>Practical speaking scenarios that require a result, not just correct grammar.</p><div class="grid"><div class="item"><b>Explain a problem</b>Give details, clarify and answer follow-up questions.</div><div class="item"><b>Make a decision</b>Compare options and justify a choice.</div><div class="item"><b>Negotiate</b>Make suggestions and reach an agreement.</div><div class="item"><b>Handle disagreement</b>Stay polite, clear and persuasive.</div></div>`,
+real:`<span class="tag">Real-life English</span><h2 id="modalTitle">Real-life Tasks</h2><p>Practical speaking scenarios that require a result, not just correct grammar.</p><button class="lesson-launch" onclick="openElectionLesson()"><b>Elections in Russia</b><small>Vocabulary • grammar • reading • speaking • final quiz</small></button><div class="grid"><div class="item"><b>Explain a problem</b>Give details, clarify and answer follow-up questions.</div><div class="item"><b>Make a decision</b>Compare options and justify a choice.</div><div class="item"><b>Negotiate</b>Make suggestions and reach an agreement.</div><div class="item"><b>Handle disagreement</b>Stay polite, clear and persuasive.</div></div>`,
 progress:`<span class="tag">Progress</span><h2 id="modalTitle">Progress Tracker</h2><p>Track practical development rather than isolated test scores.</p><div class="grid"><div class="item"><b>Speaking</b>Fluency, length of answer, confidence.</div><div class="item"><b>Vocabulary</b>Active use of new chunks in conversation.</div><div class="item"><b>Grammar</b>Accuracy with the structures currently studied.</div><div class="item"><b>Legal English</b>Ability to explain law-related ideas clearly.</div></div>`,
 resources:`<span class="tag">Resources</span><h2 id="modalTitle">Useful Resources</h2><p>Keep lesson materials, useful links, vocabulary and reference tools in one place.</p><div class="grid"><div class="item"><b>Lesson materials</b>Current Outcomes unit and speaking extensions.</div><div class="item"><b>Vocabulary bank</b>Personalised words and collocations worth recycling.</div><div class="item"><b>Listening</b>Short authentic or level-adjusted listening tasks.</div><div class="item"><b>Legal reading</b>Short accessible texts linked to law and society.</div></div>`
 };
 const modal=document.getElementById('modal'),content=document.getElementById('content');
 document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>{content.innerHTML=sections[b.dataset.open]||sections.home;modal.classList.add('open')}));
 function shut(){modal.classList.remove('open')}document.getElementById('close').onclick=shut;modal.addEventListener('click',e=>{if(e.target===modal)shut()});document.addEventListener('keydown',e=>{if(e.key==='Escape')shut()});
+
+function openElectionLesson(){shut();document.getElementById('electionLesson').classList.add('open');document.body.style.overflow='hidden'}
+function closeElectionLesson(){document.getElementById('electionLesson').classList.remove('open');document.body.style.overflow='auto'}
+document.querySelectorAll('[data-eslide]').forEach((b,i)=>b.addEventListener('click',()=>{document.querySelectorAll('[data-eslide]').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.e-slide').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.e-slide')[i].classList.add('active');document.querySelector('.election-main').scrollTop=0}));
+function checkSelects(btn){const box=btn.closest('.e-box'),qs=[...box.querySelectorAll('select[data-a]')];let n=0;qs.forEach(s=>{const ok=s.value===s.dataset.a;s.style.borderColor=ok?'#5c9a68':'#b85b63';if(ok)n++});btn.nextElementSibling.textContent=n+'/'+qs.length+' correct'}
+function checkInputs(btn){const slide=btn.closest('.e-slide'),qs=[...slide.querySelectorAll('input[data-answer]')];let n=0;qs.forEach(s=>{const ok=s.value.trim().toLowerCase()===s.dataset.answer.toLowerCase();s.style.borderBottomColor=ok?'#4d8c5c':'#b14b55';if(ok)n++});btn.nextElementSibling.textContent=n+'/'+qs.length+' correct'}
+document.querySelectorAll('#eQuiz .quiz-opt').forEach(b=>b.addEventListener('click',()=>{const q=b.closest('.e-q');q.querySelectorAll('.quiz-opt').forEach(x=>x.classList.remove('good','bad'));b.classList.add(b.dataset.correct?'good':'bad');if(!b.dataset.correct){const c=q.querySelector('[data-correct]');if(c)c.classList.add('good')}}));
+
 </script>
 </body></html>
