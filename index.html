@@ -35,7 +35,7 @@
 .wordbank{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.wordbank span{background:#e9eef4;border-radius:999px;padding:7px 10px;font-weight:800;font-size:13px}
 .reading{columns:2;column-gap:36px;line-height:1.65}.speak-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.prompt{background:#fff;border-left:5px solid #9b1c27;padding:16px;border-radius:14px;min-height:140px}.prompt b{display:block;margin-bottom:8px}
 .quiz-opt{display:block;width:100%;text-align:left;border:1px solid #d9dee4;background:#fff;border-radius:12px;padding:11px 12px;margin:7px 0;cursor:pointer}.quiz-opt.good{background:#e5f3e9;border-color:#76ad82}.quiz-opt.bad{background:#f8e7e8;border-color:#c77b82}
-.source-note{font-size:12px;color:#69727d;margin-top:20px}.photo-strip{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;margin:18px 0}.photo-strip img{width:100%;height:230px;object-fit:cover;border-radius:16px}
+.source-note{font-size:12px;color:#69727d;margin-top:20px}.ev-card{position:relative;max-width:650px;height:300px;margin:auto;border:1px solid #d9dee4;border-radius:20px;background:#fff;box-shadow:0 12px 32px #0001;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;padding:28px}.ev-front b{font:800 36px Georgia,serif;color:#102944}.ev-back{display:none;max-width:520px}.ev-back>b{display:block;font-size:25px;color:#9b1c27;margin-bottom:10px}.ev-back p{font-size:17px;line-height:1.45}.ev-back small{font-size:15px;color:#5f6873}.ev-card.flipped .ev-front{display:none}.ev-card.flipped .ev-back{display:block}.ev-audio{position:absolute;top:14px;left:14px;width:42px;height:42px;border:0;border-radius:50%;background:#e9eef4;cursor:pointer;font-size:18px}.ev-card.flipped .ev-audio{display:none}#evCount{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-size:12px;font-weight:800;color:#77808a}.ev-controls{display:flex;gap:8px;justify-content:center;margin-top:12px}.ev-controls button{border:1px solid #cbd1d7;background:#fff;border-radius:10px;padding:9px 14px;font-weight:800;cursor:pointer}#trickyQuiz .e-q{padding:14px 0}#trickyQuiz .quiz-opt{display:inline-block;width:auto;margin:5px 5px 5px 0}#trickyNote{border-left:5px solid #9b1c27;font-weight:700;line-height:1.5}.photo-strip{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;margin:18px 0}.photo-strip img{width:100%;height:230px;object-fit:cover;border-radius:16px}
 @media(max-width:820px){.election-layout{grid-template-columns:1fr}.election-nav{display:flex;gap:6px;overflow-x:auto;padding:9px;border-right:0;border-bottom:1px solid #d4d7da}.election-nav button{min-width:max-content;margin:0}.election-main{padding:18px}.e-grid,.speak-grid{grid-template-columns:1fr 1fr}.reading{columns:1}.photo-strip{grid-template-columns:1fr}.photo-strip img{height:180px}}
 
 
@@ -184,17 +184,48 @@
   </header>
   <div class="election-layout">
     <nav class="election-nav">
-      <button class="active" data-eslide="0">1. Lead-in</button>
-      <button data-eslide="1">2. Vocabulary</button>
-      <button data-eslide="2">3. Practice</button>
-      <button data-eslide="3">4. Grammar</button>
-      <button data-eslide="4">5. Word Formation</button>
-      <button data-eslide="5">6. Reading</button>
-      <button data-eslide="6">7. Speaking</button>
-      <button data-eslide="7">8. Final Quiz</button>
+      <button class="active" data-eslide="0">1. Key Words</button>
+      <button data-eslide="1">2. Tricky Quiz</button>
+      <button data-eslide="2">3. Lead-in</button>
+      <button data-eslide="3">4. Vocabulary</button>
+      <button data-eslide="4">5. Practice</button>
+      <button data-eslide="5">6. Grammar</button>
+      <button data-eslide="6">7. Word Formation</button>
+      <button data-eslide="7">8. Reading</button>
+      <button data-eslide="8">9. Speaking</button>
+      <button data-eslide="9">10. Final Quiz</button>
     </nav>
     <main class="election-main">
       <section class="e-slide active">
+        <div class="e-kicker">Vocabulary first</div><h2>Key words before the quiz</h2>
+        <p class="e-lead">Listen to the English phrase on the front. Flip the card for Russian + a short meaning. Audio is only on the front side.</p>
+        <div class="e-box">
+          <div class="ev-card" id="evCard" onclick="evFlip()">
+            <button class="ev-audio" id="evAudio" onclick="event.stopPropagation();evSpeak()">🔊</button>
+            <div class="ev-front"><b id="evWord"></b></div>
+            <div class="ev-back"><b id="evRu"></b><p id="evDef"></p><small id="evEx"></small></div>
+            <span id="evCount"></span>
+          </div>
+          <div class="ev-controls"><button onclick="evPrev()">← Back</button><button onclick="evFlip()">Flip</button><button onclick="evNext()">Next →</button></div>
+        </div>
+      </section>
+      <section class="e-slide">
+        <div class="e-kicker">Legal English hook</div><h2>Can they vote? Can they run?</h2>
+        <p class="e-lead">Choose first. Then reveal the rule. The questions use current Russian electoral law as of September 2026.</p>
+        <div class="e-box" id="trickyQuiz">
+          <div class="e-q"><label>1. A Russian citizen is serving a prison sentence after a court conviction. Can they vote?</label><button class="quiz-opt" data-correct="1" data-note="No. Article 32(3) of the Constitution excludes citizens held in places of imprisonment under a court sentence from voting and being elected.">No</button><button class="quiz-opt" data-note="The restriction applies while the person is serving imprisonment under a court sentence.">Yes, in all elections</button><button class="quiz-opt" data-note="There is no general local-election exception to this constitutional rule.">Only in local elections</button><button class="quiz-opt" data-note="The rule does not depend on permission from a prison official.">Only with permission</button></div>
+          <div class="e-q"><label>2. Can that same convicted prisoner stand as a candidate while serving the prison sentence?</label><button class="quiz-opt" data-correct="1" data-note="No. The constitutional restriction covers both the right to vote and the right to be elected.">No</button><button class="quiz-opt" data-note="The restriction is not limited to active voting rights.">Yes, but cannot vote</button><button class="quiz-opt" data-note="Self-nomination does not override the constitutional restriction.">Only as an independent</button><button class="quiz-opt" data-note="There is no blanket municipal-election exception.">Only municipally</button></div>
+          <div class="e-q"><label>3. A person is in pre-trial detention and has not been convicted. Can they vote if they otherwise have voting rights?</label><button class="quiz-opt" data-correct="1" data-note="Generally yes. Russian election rules provide voting procedures for suspects and accused persons held in pre-trial detention; this is legally distinct from serving imprisonment under a final court sentence.">Generally yes</button><button class="quiz-opt" data-note="Pre-trial detention by itself is not the same as serving imprisonment under a court sentence.">Never</button><button class="quiz-opt" data-note="A judge's special permission is not the general legal test.">Only with a judge's permission</button><button class="quiz-opt" data-note="The right is not generally limited to presidential elections.">Only in presidential elections</button></div>
+          <div class="e-q"><label>4. A Russian citizen turns 18 on election day. Can they vote that day?</label><button class="quiz-opt" data-correct="1" data-note="Yes. Federal Law No. 67-FZ gives the right to vote to a citizen who has reached 18 by election day.">Yes</button><button class="quiz-opt" data-note="The law uses age on election day, not the campaign start date.">No, they had to be 18 earlier</button><button class="quiz-opt" data-note="Parental consent is not part of the rule.">Only with parental consent</button><button class="quiz-opt" data-note="The age rule is not limited to local elections.">Only in local elections</button></div>
+          <div class="e-q"><label>5. Can an 18-year-old be elected to the State Duma?</label><button class="quiz-opt" data-note="Voting age and candidacy age are different here.">Yes</button><button class="quiz-opt" data-correct="1" data-note="No. A State Duma candidate must be at least 21 on election day and permanently reside in Russia.">No, the minimum age is 21</button><button class="quiz-opt" data-note="The federal rule sets 21, not 25.">No, the minimum age is 25</button><button class="quiz-opt" data-note="Party-list status does not reduce the age requirement.">Only through a party list</button></div>
+          <div class="e-q"><label>6. Can a 34-year-old be elected President of Russia?</label><button class="quiz-opt" data-note="The Constitution sets a higher minimum age.">Yes</button><button class="quiz-opt" data-note="Party nomination does not change the constitutional age requirement.">Only if nominated by a party</button><button class="quiz-opt" data-correct="1" data-note="No. Article 81 requires a presidential candidate to be at least 35, along with other constitutional conditions.">No</button><button class="quiz-opt" data-note="Previous service as an MP is not a substitute for the age requirement.">Only after serving as an MP</button></div>
+          <div class="e-q"><label>7. A person finished serving a prison sentence yesterday. Does that automatically mean they may stand in every election today?</label><button class="quiz-opt" data-note="Release from prison does not automatically remove every possible restriction on passive electoral rights.">Yes</button><button class="quiz-opt" data-correct="1" data-note="No. Additional restrictions can continue after release for some convictions; the exact rule depends on the offence and the election.">No, further restrictions may apply</button><button class="quiz-opt" data-note="There is no general fee rule that restores candidacy rights.">Only after paying a fee</button><button class="quiz-opt" data-note="Party approval cannot override statutory eligibility restrictions.">Only if a party agrees</button></div>
+          <div class="e-q"><label>8. For State Duma elections, what is the minimum age to vote?</label><button class="quiz-opt" data-correct="1" data-note="18 on election day.">18</button><button class="quiz-opt" data-note="21 is the minimum candidacy age for the State Duma, not the voting age.">21</button><button class="quiz-opt" data-note="16 is below the federal voting age.">16</button><button class="quiz-opt" data-note="25 is not the State Duma voting age.">25</button></div>
+        </div>
+        <div id="trickyNote" class="e-box" style="display:none"></div>
+        <p class="source-note">Legal basis: Constitution of the Russian Federation, Arts. 32 and 81; Federal Law No. 67-FZ, Art. 4; Federal Law No. 20-FZ, Art. 4; CEC procedure for voting in pre-trial detention facilities for elections on 20 September 2026.</p>
+      </section>
+      <section class="e-slide">
         <div class="e-kicker">Warm-up</div><h2>What happens on election day?</h2>
         <p class="e-lead">Look at the photos. Describe what you can see, then put the stages of voting in a logical order. Focus on neutral, practical language rather than political opinions.</p>
         <div class="photo-strip">
@@ -292,6 +323,28 @@ document.querySelectorAll('[data-eslide]').forEach((b,i)=>b.addEventListener('cl
 function checkSelects(btn){const box=btn.closest('.e-box'),qs=[...box.querySelectorAll('select[data-a]')];let n=0;qs.forEach(s=>{const ok=s.value===s.dataset.a;s.style.borderColor=ok?'#5c9a68':'#b85b63';if(ok)n++});btn.nextElementSibling.textContent=n+'/'+qs.length+' correct'}
 function checkInputs(btn){const slide=btn.closest('.e-slide'),qs=[...slide.querySelectorAll('input[data-answer]')];let n=0;qs.forEach(s=>{const ok=s.value.trim().toLowerCase()===s.dataset.answer.toLowerCase();s.style.borderBottomColor=ok?'#4d8c5c':'#b14b55';if(ok)n++});btn.nextElementSibling.textContent=n+'/'+qs.length+' correct'}
 document.querySelectorAll('#eQuiz .quiz-opt').forEach(b=>b.addEventListener('click',()=>{const q=b.closest('.e-q');q.querySelectorAll('.quiz-opt').forEach(x=>x.classList.remove('good','bad'));b.classList.add(b.dataset.correct?'good':'bad');if(!b.dataset.correct){const c=q.querySelector('[data-correct]');if(c)c.classList.add('good')}}));
+const evWords=[
+['to vote','голосовать','to choose a candidate or option in an election','Citizens vote in elections.'],
+['to stand for election','баллотироваться','to be a candidate in an election','She decided to stand for election.'],
+['to be eligible to vote','иметь право голосовать','to meet the legal conditions for voting','You must be eligible to vote.'],
+['to be eligible to stand','иметь право баллотироваться','to meet the legal conditions for candidacy','Not everyone is eligible to stand.'],
+['candidate','кандидат','a person standing in an election','Each candidate must meet legal requirements.'],
+['voter','избиратель','a person entitled to vote','Every voter receives a ballot.'],
+['ballot','бюллетень','the paper or method used to record a vote','The voter marks the ballot privately.'],
+['polling station','избирательный участок','a place where people vote','The polling station opened in the morning.'],
+['criminal conviction','судимость / обвинительный приговор','a formal finding of guilt by a court','A criminal conviction may affect some electoral rights.'],
+['pre-trial detention','содержание под стражей до суда','detention before a final conviction','Pre-trial detention is legally different from serving a prison sentence.'],
+['serve a prison sentence','отбывать тюремный срок','to spend time in prison as punishment after conviction','He is serving a prison sentence.'],
+['self-nomination','самовыдвижение','putting yourself forward as a candidate where the law permits it','The rules may allow self-nomination.'],
+['voter turnout','явка избирателей','the proportion of eligible voters who vote','Voter turnout varies between elections.']
+];let evI=0;
+function evRender(){const x=evWords[evI],card=document.getElementById('evCard');if(!card)return;card.classList.remove('flipped');evWord.textContent=x[0];evRu.textContent=x[1];evDef.textContent=x[2];evEx.textContent=x[3];evCount.textContent=(evI+1)+' / '+evWords.length}
+function evFlip(){evCard.classList.toggle('flipped')}
+function evPrev(){if(evI>0){evI--;evRender()}}
+function evNext(){if(evI<evWords.length-1){evI++;evRender()}}
+function evSpeak(){if(evCard.classList.contains('flipped')||!('speechSynthesis'in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(evWords[evI][0]);u.lang='en-GB';u.rate=.85;speechSynthesis.speak(u)}
+evRender();
+document.querySelectorAll('#trickyQuiz .quiz-opt').forEach(b=>b.addEventListener('click',()=>{const q=b.closest('.e-q');q.querySelectorAll('.quiz-opt').forEach(x=>x.classList.remove('good','bad'));b.classList.add(b.dataset.correct?'good':'bad');const n=document.getElementById('trickyNote');n.style.display='block';n.innerHTML=(b.dataset.correct?'✓ ':'✗ ')+b.dataset.note;}));
 
 
 function openRefLesson(){shut();document.getElementById('refLesson').classList.add('open');document.body.style.overflow='hidden'}
